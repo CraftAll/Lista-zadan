@@ -1,0 +1,36 @@
+<mat-card ngClass="workers-card">
+  <mat-card-header ngClass="workers-card-header">
+    <mat-card-title>Lista pracowników</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list ngClass="workers-card-list">
+      <button
+        mat-button
+        mat-list-item
+        ngClass="workers-card-list-item"
+        *ngFor="let worker of workers; index as index"
+        (click)="selectWorker(index)"
+      >
+        <div>{{ worker.firstName[0] + worker.lastName[0] | uppercase }}</div>
+        <div>
+          <p>
+            {{ worker.firstName | uppercase }} {{ worker.lastName | uppercase }}
+          </p>
+          <p>{{ worker.position }}</p>
+        </div>
+        <div>
+          <p>Zadania zakończone:</p>
+          <p>
+            [ {{ worker.finishedTasks.length }} / {{ worker.tasks.length }} ]
+          </p>
+        </div>
+      </button>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions align="end">Add</mat-card-actions>
+</mat-card>
+
+<app-tasks
+  [worker]="selectedWorker"
+  (taskChange)="checkFinishedTasks()"
+></app-tasks>
