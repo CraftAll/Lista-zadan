@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { sampleWorkers } from 'src/assets/sampleWorkers';
 import { WORKER } from '../WORKER';
-import { MatCardModule } from '@angular/material/card';
+
 @Component({
   selector: 'app-workers',
   templateUrl: './workers.component.html',
@@ -11,18 +11,12 @@ export class WorkersComponent implements OnInit {
   constructor() {}
   workers: WORKER[] = sampleWorkers;
   selectedWorker: WORKER | undefined;
+  @Output() selectedWorkerEmitter = new EventEmitter();
   ngOnInit(): void {
     this.checkFinishedTasks();
   }
-
-  checkFinishedTasks(): void {
-    this.workers.map((worker) => {
-      worker.finishedTasks =
-        worker.tasks.filter((task) => task.status === 'Zakończone') || [];
-      return worker;
-    });
+  SelectWorker(): void {
+    this.selectedWorkerEmitter.emit(this.selectedWorker);
   }
-  selectWorker(id: number): void {
-    this.selectedWorker = this.workers[id];
-  }
+  @Input('taskChecker') checkFinishedTasks(): void {}
 }
