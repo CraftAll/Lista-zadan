@@ -12,5 +12,4 @@ export class TasksComponent implements OnInit {
   @Input() worker: WORKER | undefined;
   @Output() taskChange = new EventEmitter();
   options = ['Nie rozpoczęte', 'W toku', 'Zakończone'];
-  console = console;
 }

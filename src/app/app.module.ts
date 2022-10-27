@@ -10,12 +10,21 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { WorkersComponent } from './workers/workers.component';
 import { TasksComponent } from './tasks/tasks.component';
+import { NewWorkerComponent } from './workers/new-worker/new-worker.component';
 
 @NgModule({
-  declarations: [AppComponent, WorkersComponent, TasksComponent],
+  declarations: [
+    AppComponent,
+    WorkersComponent,
+    TasksComponent,
+    NewWorkerComponent,
+  ],
   imports: [
+    MatFormFieldModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -25,6 +34,7 @@ import { TasksComponent } from './tasks/tasks.component';
     MatButtonModule,
     MatIconModule,
     MatGridListModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

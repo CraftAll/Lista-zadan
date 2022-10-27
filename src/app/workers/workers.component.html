@@ -13,8 +13,8 @@
         [value]="worker"
         [style]="'height:100px'"
       >
-        <mat-grid-list cols="12" [rowHeight]="'100px'" [gutterSize]="'1px'">
-          <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <mat-grid-list cols="12" [rowHeight]="'2em'" [gutterSize]="'1px'">
+          <mat-grid-tile [colspan]="2" [rowspan]="2">
             {{ worker.firstName[0] + worker.lastName[0] | uppercase }}
           </mat-grid-tile>
           <mat-grid-tile [colspan]="5" [rowspan]="1">
@@ -22,23 +22,24 @@
               {{ worker.firstName | uppercase }}
               {{ worker.lastName | uppercase }}
             </p>
-            <p>{{ worker.position }}</p>
           </mat-grid-tile>
           <mat-grid-tile [colspan]="5" [rowspan]="1">
             <p>Zadania zakończone:</p>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="5" [rowspan]="1">
+            <p>{{ worker.position }}</p>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="5" [rowspan]="1">
             <p>
               [ {{ worker.finishedTasks.length }} / {{ worker.tasks.length }} ]
             </p>
           </mat-grid-tile>
         </mat-grid-list>
-        <div></div>
-        <div></div>
-        <div></div>
       </mat-list-option>
     </mat-selection-list>
   </mat-card-content>
   <mat-card-actions align="end">
-    <button mat-raised-button color="primary">
+    <button mat-fab color="primary" (click)="openDialog()">
       <mat-icon class="mat-18" fontIcon="add">Add</mat-icon>
     </button>
   </mat-card-actions>

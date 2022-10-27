@@ -1,6 +1,6 @@
 import { WORKER } from 'src/app/WORKER';
 
-export const sampleWorkers: WORKER[] = [
+export let sampleWorkers: WORKER[] = [
   {
     firstName: 'Jan',
     lastName: 'Kowalski',

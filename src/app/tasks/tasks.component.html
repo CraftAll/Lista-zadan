@@ -8,12 +8,10 @@
     <mat-card-content>
       <mat-list>
         <mat-list-item *ngFor="let task of worker.tasks; index as id">
-          <p>{{ id + 1 }}. {{ task.name }}</p>
-          <p>
+          <p matLine>{{ id + 1 }}. {{ task.name }}</p>
+          <p matLine>
             Status:
             <mat-select
-              name=""
-              id=" "
               (selectionChange)="taskChange.emit()"
               [(value)]="task.status"
             >
@@ -25,9 +23,10 @@
         </mat-list-item>
       </mat-list>
     </mat-card-content>
-    <mat-card-actions align="start">
-      <button mat-button>Action1</button>
+    <mat-card-actions align="end">
+      <button mat-fab color="primary">
+        <mat-icon class="mat-18" fontIcon="add">Add</mat-icon>
+      </button>
     </mat-card-actions>
-    <mat-card-footer> Footer </mat-card-footer>
   </mat-card>
 </ng-container>
