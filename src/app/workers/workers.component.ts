@@ -26,11 +26,16 @@ export class WorkersComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(NewWorkerComponent, {
       width: '250px',
-      //data: { name: this.name, animal: this.animal },
+      data: {
+        firstName: '',
+        lastName: '',
+        position: '',
+        tasks: [],
+        finishedTasks: [],
+      },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
       this.workers.push(result);
     });
   }
