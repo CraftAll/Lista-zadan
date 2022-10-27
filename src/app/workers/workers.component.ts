@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { sampleWorkers } from 'src/assets/sampleWorkers';
 import { WORKER } from '../WORKER';
 import { NewWorkerComponent } from './new-worker/new-worker.component';
-
 @Component({
   selector: 'app-workers',
   templateUrl: './workers.component.html',
