@@ -3,15 +3,15 @@
   <form>
     <mat-form-field appearance="fill">
       <mat-label>Imie</mat-label>
-      <input matInput (ngModel)]="data.firstName" placeholder="Imie" />
+      <input [(ngModel)]="firstName" matInput (change)="onChange('firstName')" placeholder="Imie" />
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Nazwisko</mat-label>
-      <input matInput (ngModel)="(data.lastName)" placeholder="Nazwisko" />
+      <input [(ngModel)]="lastName" matInput change)="onChange('lastName')" placeholder="Nazwisko" />
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Stanowisko</mat-label>
-      <input matInput (ngModel)="(data.position)" placeholder="Stanowisko" />
+      <input [(ngModel)]="position" matInput change)="onChange('position')" placeholder="Stanowisko" />
     </mat-form-field>
   </form>
 </div>
