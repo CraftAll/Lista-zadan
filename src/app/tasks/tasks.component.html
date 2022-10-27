@@ -1,0 +1,32 @@
+<ng-container *ngIf="worker">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        Lista zadań: {{ worker.firstName }} {{ worker.lastName }}
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let task of worker.tasks; index as id">
+          <p matLine>{{ id + 1 }}. {{ task.name }}</p>
+          <p matLine>
+            Status:
+            <mat-select
+              (selectionChange)="taskChange.emit()"
+              [(value)]="task.status"
+            >
+              <mat-option *ngFor="let option of options" [value]="option">
+                {{ option }}
+              </mat-option>
+            </mat-select>
+          </p>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-fab color="primary">
+        <mat-icon class="mat-18" fontIcon="add">Add</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>
