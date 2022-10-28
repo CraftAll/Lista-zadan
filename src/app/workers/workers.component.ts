@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { sampleWorkers } from 'src/assets/sampleWorkers';
+import { workers } from '../app.component';
 import { WORKER } from '../WORKER';
 import { NewWorkerComponent } from './new-worker/new-worker.component';
 
@@ -11,7 +11,7 @@ import { NewWorkerComponent } from './new-worker/new-worker.component';
 })
 export class WorkersComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
-  workers: WORKER[] = sampleWorkers;
+  workers = workers;
   selectedWorker: WORKER[] | undefined;
   @Output() selectedWorkerEmitter = new EventEmitter();
   ngOnInit(): void {
@@ -26,12 +26,20 @@ export class WorkersComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(NewWorkerComponent, {
       width: '250px',
-      //data: { name: this.name, animal: this.animal },
+      data: {
+        firstName: '',
+        lastName: '',
+        position: '',
+        tasks: [],
+        finishedTasks: [],
+      },
     });
-
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
-      this.workers.push(result);
+      if (result) {
+        console.log(result);
+        this.workers.push(result);
+        localStorage.setItem('workers', JSON.stringify(this.workers));
+      }
     });
   }
 }

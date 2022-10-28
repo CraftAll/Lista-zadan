@@ -1,28 +1,21 @@
 <h1 mat-dialog-title>Dodaj pracownika</h1>
 <div mat-dialog-content>
-  <form>
-    <mat-form-field appearance="fill">
-      <mat-label>Imie</mat-label>
-      <input [(ngModel)]="firstName" matInput (change)="onChange('firstName')" placeholder="Imie" />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Nazwisko</mat-label>
-      <input [(ngModel)]="lastName" matInput change)="onChange('lastName')" placeholder="Nazwisko" />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Stanowisko</mat-label>
-      <input [(ngModel)]="position" matInput change)="onChange('position')" placeholder="Stanowisko" />
-    </mat-form-field>
-  </form>
+  <mat-form-field appearance="fill">
+    <mat-label>Imie</mat-label>
+    <input [(ngModel)]="data.firstName" matInput />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Nazwisko</mat-label>
+    <input [(ngModel)]="data.lastName" matInput />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Stanowisko</mat-label>
+    <input [(ngModel)]="data.position" matInput />
+  </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Anuluj</button>
-  <button
-    mat-button
-    [mat-dialog-close]="data.firstName"
-    (click)="onYesClick()"
-    cdkFocusInitial
-  >
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>
     Zatwierdź
   </button>
 </div>

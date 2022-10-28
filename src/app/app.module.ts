@@ -12,9 +12,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { WorkersComponent } from './workers/workers.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { NewWorkerComponent } from './workers/new-worker/new-worker.component';
+import { NewTaskComponent } from './tasks/new-task/new-task.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { NewWorkerComponent } from './workers/new-worker/new-worker.component';
     WorkersComponent,
     TasksComponent,
     NewWorkerComponent,
+    NewTaskComponent,
   ],
   imports: [
     MatFormFieldModule,
@@ -35,6 +38,7 @@ import { NewWorkerComponent } from './workers/new-worker/new-worker.component';
     MatIconModule,
     MatGridListModule,
     MatDialogModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

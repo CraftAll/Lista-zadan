@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { sampleWorkers } from 'src/assets/sampleWorkers';
+import { Component, OnChanges } from '@angular/core';
+import { sampleWorkers } from './sampleWorkers';
 import { WORKER } from './WORKER';
 
 @Component({
@@ -8,12 +8,18 @@ import { WORKER } from './WORKER';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  workers: WORKER[] = sampleWorkers;
-  selectedWorker: WORKER | undefined;
+  ngOnChanges() {
+    this.workers = JSON.parse(
+      localStorage.getItem('workers') || JSON.stringify(sampleWorkers)
+    );
+  }
+  workers = workers;
+  selectedWorker: WORKER | null = null;
   checkFinishedTasks(): void {
     this.workers.map((worker) => {
       worker.finishedTasks =
         worker.tasks.filter((task) => task.status === 'Zakończone') || [];
+      localStorage.setItem('workers', JSON.stringify(this.workers));
       return worker;
     });
   }
@@ -21,3 +27,7 @@ export class AppComponent {
     this.selectedWorker = worker;
   }
 }
+
+export const workers: WORKER[] = JSON.parse(
+  localStorage.getItem('workers') || JSON.stringify(sampleWorkers)
+);
