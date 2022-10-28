@@ -1,5 +1,5 @@
-<mat-grid-list cols="2" [rowHeight]="'100vh'" [gutterSize]="'1px'">
-  <mat-grid-tile [colspan]="1" [rowspan]="1">
+<mat-grid-list cols="3" [rowHeight]="'100vh'" [gutterSize]="'1px'">
+  <mat-grid-tile [colspan]="2" [rowspan]="1">
     <app-workers
       [taskChecker]="checkFinishedTasks"
       (selectedWorkerEmitter)="selectedWorkerReciver($event)"
